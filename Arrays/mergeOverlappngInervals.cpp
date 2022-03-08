@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-/*          Merge Overlapping Intervals
+/*          Next Permutation
 Input - 
                 8
                 1 3 
@@ -44,9 +44,9 @@ int main()
 
     for (int i = 1; i < n; i++)
     {
-        if (vop[i].first <= currentPair.second && vop[i].second > currentPair.second)
+        if (vop[i].first <= currentPair.second)
         {
-            currentPair.second = vop[i].second;
+            currentPair.second = max(vop[i].second, currentPair.second);
         }
         else
         {
@@ -54,6 +54,8 @@ int main()
             currentPair = vop[i];
         }
     }
+
+    result.push_back(currentPair);
 
     for (auto z : result)
     {
